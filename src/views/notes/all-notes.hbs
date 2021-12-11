@@ -1,0 +1,27 @@
+<div class="row">
+    {{#each note}}
+    <div class="col-md-3 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <p class="card-text"> {{description}} </p>
+            </div>
+            {{!--  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"> {{createdAt}} </li>
+                    <li class="list-group-item"> {{updatedAt}} </li>
+                </ul> --}}
+            <div class="card-footer">
+                <a href="/notes/edit/{{_id}}" class="btn btn-outline-info btn-block" data-toggle="tooltip" title="Edit note">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST" class="p-0 mt-2">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" href="#" class="btn btn-outline-danger btn-block" data-toggle="tooltip" title="Delete note" data-placement="bottom">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
